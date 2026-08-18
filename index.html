@@ -50,7 +50,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
+<!-- El ?v= obliga al navegador a descargar la versión nueva en vez de la
+     que tenga guardada. Al cambiar el CSS o el JS, sube el número. -->
+<link rel="stylesheet" href="css/style.css?v=5">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -140,6 +142,31 @@
 </svg>
 
 
+<!-- ============================================================
+     MUSICA - "Milagro de Amor" (Proyectos Romanticos)
+     ------------------------------------------------------------
+     Coloca el archivo en:  assets/audio/milagro-de-amor.mp3
+     Si el archivo no existe, el boton se oculta solo y la pagina
+     sigue funcionando con normalidad.
+
+     No suena sola a proposito: los navegadores bloquean el audio
+     automatico y resulta molesto para quien abre el enlace.
+     ============================================================ -->
+<audio id="cancion" loop preload="none">
+  <source src="assets/audio/milagro-de-amor.mp3" type="audio/mpeg">
+</audio>
+
+<button class="musica" id="btn-musica" type="button" aria-pressed="false"
+        aria-label="Escuchar la música de la invitación" hidden>
+  <span class="musica__ico" aria-hidden="true">
+    <svg class="musica__nota" viewBox="0 0 24 24">
+      <path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/>
+    </svg>
+    <span class="musica__ondas"><i></i><i></i><i></i></span>
+  </span>
+  <span class="musica__texto" id="musica-texto">Escuchar</span>
+</button>
+
 <main class="invitacion">
 
   <!-- ==========================================================
@@ -153,6 +180,10 @@
     <svg class="bf fx-tilt bf--sm-hide" style="--t:31%;--l:auto;--r:4%;--s:40px;--d:2.4s;--dur:13s" aria-hidden="true"><use href="#bf-mixto"/></svg>
     <svg class="bf fx-float" style="--t:66%;--l:5%;--s:46px;--d:2s;--dur:17s" aria-hidden="true"><use href="#bf-lila"/></svg>
     <svg class="bf fx-breathe bf--sm-hide" style="--t:78%;--l:auto;--r:9%;--s:34px;--d:3s;--dur:21s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-vaiven" style="--t:20%;--l:12%;--s:32px;--d:2.6s;--dur:24s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-tilt bf--sm-hide" style="--t:52%;--l:2%;--s:30px;--d:3.4s;--dur:16s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-planeo bf--sm-hide" style="--t:44%;--l:auto;--r:13%;--s:28px;--d:4s;--dur:26s" aria-hidden="true"><use href="#bf-lila"/></svg>
+    <svg class="bf fx-float" style="--t:86%;--l:16%;--s:28px;--d:3.8s;--dur:19s" aria-hidden="true"><use href="#bf-mixto"/></svg>
 
     <div class="hero__contenido">
       <p class="hero__susurro enter" style="--d:.7s">La dulce espera está por terminar…</p>
@@ -168,7 +199,6 @@
       </div>
 
       <p class="hero__evento enter" style="--d:1.4s">Baby&nbsp;Shower</p>
-      <p class="hero__fecha enter" style="--d:1.55s">Sábado 22 de agosto de 2026</p>
     </div>
 
     <div class="hero__scroll enter" style="--d:1.8s" aria-hidden="true">
@@ -206,15 +236,41 @@
     </div>
 
     <svg class="bf fx-tilt" style="--t:auto;--b:6%;--l:2%;--s:38px;--d:1s;--dur:14s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-vaiven bf--sm-hide" style="--t:22%;--l:1%;--s:30px;--d:2s;--dur:25s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-planeo" style="--t:auto;--b:14%;--l:auto;--r:2%;--s:34px;--d:.9s;--dur:23s" aria-hidden="true"><use href="#bf-lila"/></svg>
   </section>
 
 
   <!-- ==========================================================
-       3 · MENSAJE
+       3 · CITA
+       ========================================================== -->
+  <section class="seccion cita" aria-labelledby="cita-titulo">
+    <svg class="bf fx-planeo" style="--t:6%;--l:3%;--s:36px;--d:.4s;--dur:22s" aria-hidden="true"><use href="#bf-lila"/></svg>
+    <svg class="bf fx-breathe bf--sm-hide" style="--t:auto;--b:8%;--l:auto;--r:3%;--s:32px;--d:1.7s;--dur:26s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+
+    <h2 class="sr-only" id="cita-titulo">Cita bíblica</h2>
+
+    <figure class="cita__caja reveal">
+      <svg class="cita__bf" viewBox="0 0 100 100" aria-hidden="true"><use href="#bf-mixto"/></svg>
+      <blockquote class="cita__texto">
+        Oré por este hijo, y el <span class="vs">Señor</span> contestó mi oración, dándomelo.
+        <sup class="cita__num">28</sup> Ahora se lo entrego al <span class="vs">Señor</span>,
+        y él servirá al <span class="vs">Señor</span> toda su vida. Entonces Ana dejó ahí
+        al niño y adoró al <span class="vs">Señor</span>.
+      </blockquote>
+      <figcaption class="cita__ref">1 Samuel 1:27-28</figcaption>
+    </figure>
+  </section>
+
+
+  <!-- ==========================================================
+       4 · MENSAJE
        ========================================================== -->
   <section class="seccion mensaje" aria-labelledby="mensaje-titulo">
     <svg class="bf fx-drift" style="--t:24%;--l:auto;--r:4%;--s:42px;--d:.3s;--dur:20s" aria-hidden="true"><use href="#bf-mixto"/></svg>
     <svg class="bf fx-breathe bf--sm-hide" style="--t:auto;--b:14%;--l:auto;--r:5%;--s:36px;--d:1.4s;--dur:23s" aria-hidden="true"><use href="#bf-lila"/></svg>
+
+    <svg class="bf fx-vaiven" style="--t:auto;--b:22%;--l:6%;--s:30px;--d:2.3s;--dur:27s" aria-hidden="true"><use href="#bf-rosa"/></svg>
 
     <h2 class="sr-only" id="mensaje-titulo">Mensaje</h2>
     <blockquote class="mensaje__texto reveal">
@@ -224,9 +280,11 @@
 
 
   <!-- ==========================================================
-       4 · INFORMACIÓN DEL EVENTO
+       5 · INFORMACIÓN DEL EVENTO
        ========================================================== -->
   <section class="seccion" aria-labelledby="evento-titulo">
+    <svg class="bf fx-float bf--sm-hide" style="--t:4%;--l:2%;--s:34px;--d:.7s;--dur:18s" aria-hidden="true"><use href="#bf-lila"/></svg>
+    <svg class="bf fx-tilt" style="--t:auto;--b:5%;--l:auto;--r:3%;--s:32px;--d:1.5s;--dur:15s" aria-hidden="true"><use href="#bf-rosa"/></svg>
     <h2 class="titulo-seccion reveal" id="evento-titulo">Los detalles</h2>
 
     <div class="tarjeta reveal">
@@ -234,19 +292,14 @@
 
       <p class="tarjeta__dia">Sábado</p>
       <div class="fecha">
-        <span class="fecha__num">22</span>
-        <span class="fecha__mes">Agosto</span>
-        <span class="fecha__anio">2026</span>
+        <span class="fecha__parte">22</span>
+        <span class="fecha__sep" aria-hidden="true"></span>
+        <span class="fecha__parte">Agosto</span>
+        <span class="fecha__sep" aria-hidden="true"></span>
+        <span class="fecha__parte">2026</span>
       </div>
 
       <ul class="datos">
-        <li class="dato">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/>
-          </svg>
-          <span class="dato__label">Fecha</span>
-          <span class="dato__valor">22 de agosto de 2026</span>
-        </li>
         <li class="dato">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/>
@@ -267,9 +320,11 @@
 
 
   <!-- ==========================================================
-       5 · CUENTA REGRESIVA
+       6 · CUENTA REGRESIVA
        ========================================================== -->
   <section class="seccion cuenta" aria-labelledby="cuenta-titulo">
+    <svg class="bf fx-planeo" style="--t:10%;--l:auto;--r:4%;--s:34px;--d:.5s;--dur:24s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-vaiven bf--sm-hide" style="--t:auto;--b:12%;--l:4%;--s:28px;--d:2.1s;--dur:28s" aria-hidden="true"><use href="#bf-lila"/></svg>
     <h2 class="titulo-seccion reveal" id="cuenta-titulo">Falta muy poco</h2>
 
     <div class="cuenta__caja reveal" id="cuenta" role="timer" aria-live="polite" aria-atomic="true">
@@ -287,10 +342,11 @@
 
 
   <!-- ==========================================================
-       6 · UBICACIÓN
+       7 · UBICACIÓN
        ========================================================== -->
   <section class="seccion ubicacion" aria-labelledby="ubicacion-titulo">
     <svg class="bf fx-float bf--sm-hide" style="--t:8%;--l:auto;--r:6%;--s:40px;--d:.8s;--dur:18s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-vaiven" style="--t:14%;--l:3%;--s:32px;--d:1.9s;--dur:26s" aria-hidden="true"><use href="#bf-rosa"/></svg>
 
     <h2 class="titulo-guion reveal" id="ubicacion-titulo">Te esperamos</h2>
 
@@ -313,22 +369,25 @@
 
 
   <!-- ==========================================================
-       7 · DESPEDIDA
+       8 · DESPEDIDA
        ========================================================== -->
   <section class="seccion despedida" aria-labelledby="despedida-titulo">
     <svg class="bf fx-tilt" style="--t:6%;--l:5%;--s:38px;--d:.6s;--dur:15s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-planeo bf--sm-hide" style="--t:auto;--b:10%;--l:auto;--r:4%;--s:34px;--d:1.3s;--dur:25s" aria-hidden="true"><use href="#bf-lila"/></svg>
 
     <h2 class="titulo-guion reveal" id="despedida-titulo">Nos encantará compartir este momento contigo</h2>
   </section>
 
 
   <!-- ==========================================================
-       8 · CIERRE
+       9 · CIERRE
        ========================================================== -->
   <footer class="cierre" aria-labelledby="cierre-nombre">
     <svg class="bf fx-float" style="--t:14%;--l:8%;--s:48px;--dur:16s" aria-hidden="true"><use href="#bf-lila"/></svg>
     <svg class="bf fx-drift bf--sm-hide" style="--t:20%;--l:auto;--r:7%;--s:40px;--d:2s;--dur:22s" aria-hidden="true"><use href="#bf-rosa"/></svg>
     <svg class="bf fx-breathe" style="--t:auto;--b:9%;--l:auto;--r:12%;--s:32px;--d:1.1s;--dur:24s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-vaiven" style="--t:6%;--l:auto;--r:24%;--s:26px;--d:3.1s;--dur:29s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-planeo bf--sm-hide" style="--t:auto;--b:26%;--l:16%;--s:28px;--d:2.4s;--dur:23s" aria-hidden="true"><use href="#bf-mixto"/></svg>
 
     <p class="cierre__texto reveal">Con mucho amor, esperamos verte.</p>
     <p class="nombre nombre--cierre reveal" id="cierre-nombre">Ámbar</p>
@@ -337,6 +396,6 @@
 
 </main>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

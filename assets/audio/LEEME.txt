@@ -1,0 +1,19 @@
+MUSICA DE LA INVITACION
+=======================
+
+Coloca aqui el archivo de la cancion con este nombre exacto:
+
+    milagro-de-amor.mp3
+
+Cancion: "Milagro de Amor" - Proyectos Romanticos
+
+Mientras el archivo no exista, el boton de musica no aparece
+y la invitacion funciona con normalidad.
+
+Recomendaciones:
+- Formato MP3 (es el que entienden todos los navegadores).
+- Procura que pese menos de 5 MB, para que cargue rapido en el celular.
+- El volumen se ajusta en js/main.js, en la constante VOLUMEN.
+
+Si el archivo se llama distinto, cambia el nombre en index.html,
+en la etiqueta <source> del bloque de MUSICA.
