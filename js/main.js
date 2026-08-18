@@ -172,40 +172,63 @@
       return null;
     }
 
-    /* Arranque automático.
-       1) Se intenta directamente: funciona si el visitante ya había
-          interactuado antes con el sitio.
-       2) Si el navegador lo bloquea, se queda a la espera y arranca con el
-          primer gesto. Los eventos elegidos son los que cuentan como
-          "activación del usuario"; el scroll se añade porque en la práctica
-          es lo primero que hace casi todo el mundo al abrir la invitación. */
+    /* ---- Arranque automático ----------------------------------------
+       Ningún navegador deja que una página suene antes de que el visitante
+       toque algo; es una regla de la plataforma, no algo que se pueda
+       rodear. (Probado también reproducir en silencio para luego quitar el
+       silencio: Chrome pausa el audio silenciado en segundo plano para
+       ahorrar batería, así que tampoco sirve.)
+
+       Lo que sí se puede es sonar en el PRIMER instante permitido:
+
+       1) Al cargar se intenta directamente. Funciona si el visitante ya
+          había interactuado antes con el sitio.
+       2) Si el navegador lo rechaza, quedamos a la escucha y la canción
+          arranca con el primer gesto: un toque, un clic o una tecla.
+
+       Clave: los escuchas NO se retiran hasta que la canción suena de
+       verdad. El scroll no cuenta como interacción válida en Chrome, de
+       modo que si se soltaran en el primer evento que llega —que casi
+       siempre es un scroll— la música ya no arrancaría nunca.
+    ------------------------------------------------------------------- */
     function arrancarSola() {
-      var gestos = ['pointerdown', 'touchend', 'keydown', 'scroll'];
+      var gestos = ['pointerdown', 'pointerup', 'touchend', 'mousedown',
+                    'click', 'keydown', 'scroll'];
+      var enCurso = false;
 
-      function conGesto() {
-        quitarEscuchas();
-        reproducir();
-      }
-
-      function quitarEscuchas() {
+      function soltar() {
         gestos.forEach(function (ev) {
           document.removeEventListener(ev, conGesto, true);
         });
       }
 
-      function armarEspera() {
+      function armar() {
         gestos.forEach(function (ev) {
           document.addEventListener(ev, conGesto, true);
         });
       }
 
-      var intento = reproducir();
-      if (intento && intento.catch) {
-        intento.catch(armarEspera);   // bloqueada: esperamos el primer gesto
+      function conGesto() {
+        if (enCurso) return;
+        if (!audio.paused) { soltar(); return; }
+
+        enCurso = true;
+        var intento = reproducir();
+        if (intento && intento.then) {
+          // Sólo soltamos cuando el navegador acepta de verdad
+          intento.then(soltar, function () { enCurso = false; });
+        } else {
+          soltar();
+        }
       }
 
-      // Si el visitante la pausa a propósito, no volvemos a insistir
-      audio.addEventListener('pause', quitarEscuchas);
+      var primero = reproducir();
+      if (primero && primero.catch) {
+        primero.catch(armar);
+      }
+
+      // Si el visitante la pausa a propósito, dejamos de insistir
+      audio.addEventListener('pause', soltar);
     }
 
     boton.addEventListener('click', function () {
