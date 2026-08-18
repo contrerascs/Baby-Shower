@@ -98,8 +98,12 @@
      "Milagro de Amor" — Proyectos Románticos.
      El archivo va en assets/audio/milagro-de-amor.mp3
 
-     Nunca se reproduce sola: los navegadores bloquean el audio automático
-     y además resulta invasivo. Si el archivo no está, el botón no aparece.
+     Intenta sonar en cuanto carga la página. Casi todos los navegadores
+     bloquean el audio automático, así que si lo rechazan queda armada y
+     arranca con el primer gesto del visitante (un toque, una tecla o el
+     scroll). Así suena sin que nadie tenga que buscar el botón.
+
+     Si el archivo no está, el botón no aparece y no se intenta nada.
   ------------------------------------------------------------------- */
   (function musica() {
     var audio = document.getElementById('cancion');
@@ -123,11 +127,12 @@
 
     if (window.fetch && location.protocol.indexOf('http') === 0) {
       fetch(ruta, { method: 'HEAD' })
-        .then(function (r) { if (r.ok) mostrar(); })
+        .then(function (r) { if (r.ok) { mostrar(); arrancarSola(); } })
         .catch(function () { /* sin canción: el botón se queda oculto */ });
     } else {
       // Abierto como archivo local: no se puede comprobar, se muestra igual
       mostrar();
+      arrancarSola();
     }
 
     // Sube o baja el volumen poco a poco, para que no entre de golpe
@@ -155,14 +160,60 @@
       if (etiqueta) etiqueta.textContent = sonando ? 'Pausar' : 'Escuchar';
     }
 
+    // Pone la canción en marcha con el volumen subiendo poco a poco.
+    // Devuelve la promesa de play() para saber si el navegador la aceptó.
+    function reproducir() {
+      audio.volume = 0;
+      var intento = audio.play();
+      if (intento && intento.then) {
+        return intento.then(function () { fundir(VOLUMEN); });
+      }
+      fundir(VOLUMEN);
+      return null;
+    }
+
+    /* Arranque automático.
+       1) Se intenta directamente: funciona si el visitante ya había
+          interactuado antes con el sitio.
+       2) Si el navegador lo bloquea, se queda a la espera y arranca con el
+          primer gesto. Los eventos elegidos son los que cuentan como
+          "activación del usuario"; el scroll se añade porque en la práctica
+          es lo primero que hace casi todo el mundo al abrir la invitación. */
+    function arrancarSola() {
+      var gestos = ['pointerdown', 'touchend', 'keydown', 'scroll'];
+
+      function conGesto() {
+        quitarEscuchas();
+        reproducir();
+      }
+
+      function quitarEscuchas() {
+        gestos.forEach(function (ev) {
+          document.removeEventListener(ev, conGesto, true);
+        });
+      }
+
+      function armarEspera() {
+        gestos.forEach(function (ev) {
+          document.addEventListener(ev, conGesto, true);
+        });
+      }
+
+      var intento = reproducir();
+      if (intento && intento.catch) {
+        intento.catch(armarEspera);   // bloqueada: esperamos el primer gesto
+      }
+
+      // Si el visitante la pausa a propósito, no volvemos a insistir
+      audio.addEventListener('pause', quitarEscuchas);
+    }
+
     boton.addEventListener('click', function () {
       if (audio.paused) {
-        audio.volume = 0;
-        var intento = audio.play();
+        var intento = reproducir();
         if (intento && intento.catch) {
           intento.catch(function () { pintar(false); });
         }
-        fundir(VOLUMEN);
       } else {
         fundir(0, function () { audio.pause(); });
       }

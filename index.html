@@ -52,7 +52,7 @@
 
 <!-- El ?v= obliga al navegador a descargar la versión nueva en vez de la
      que tenga guardada. Al cambiar el CSS o el JS, sube el número. -->
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -149,10 +149,12 @@
      Si el archivo no existe, el boton se oculta solo y la pagina
      sigue funcionando con normalidad.
 
-     No suena sola a proposito: los navegadores bloquean el audio
-     automatico y resulta molesto para quien abre el enlace.
+     La cancion arranca sola en cuanto el navegador lo permite. Como
+     casi todos bloquean el audio automatico, si lo impide se queda
+     esperando y suena en el primer toque o scroll del visitante.
+     El boton sirve para pausarla en cualquier momento.
      ============================================================ -->
-<audio id="cancion" loop preload="none">
+<audio id="cancion" loop preload="auto">
   <source src="assets/audio/milagro-de-amor.mp3" type="audio/mpeg">
 </audio>
 
@@ -355,9 +357,9 @@
       <span class="direccion__colonia">Col. La Cuesta</span>
     </address>
 
-    <!-- Abre Google Maps con la búsqueda exacta de la dirección -->
+    <!-- Enlace corto de Google Maps al punto exacto del evento -->
     <a class="boton reveal"
-       href="https://www.google.com/maps/search/?api=1&amp;query=Calle%20Mar%20Caribe%20%237%2C%20Col.%20La%20Cuesta"
+       href="https://maps.app.goo.gl/YpGeUbm7iJSiAkLS8"
        target="_blank" rel="noopener"
        aria-label="Ver ubicación en Google Maps: Calle Mar Caribe número 7, Colonia La Cuesta">
       <svg class="boton__ico" viewBox="0 0 24 24" aria-hidden="true">
@@ -396,6 +398,6 @@
 
 </main>
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=6"></script>
 </body>
 </html>
