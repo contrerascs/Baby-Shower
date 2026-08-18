@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Baby Shower de Ámbar · 22 de agosto de 2026</title>
+<meta name="description" content="La dulce espera está por terminar. Acompáñanos a celebrar la llegada de nuestra hermosa bebé Ámbar. Sábado 22 de agosto de 2026, 5:30 PM.">
+<meta name="theme-color" content="#FCFAFB">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Baby Shower de Ámbar">
+<meta property="og:description" content="La dulce espera está por terminar. Acompáñanos a celebrar la llegada de nuestra hermosa bebé Ámbar · Sábado 22 de agosto de 2026, 5:30 PM.">
+<meta property="og:image" content="assets/img/2.jpg">
+<meta property="og:image:alt" content="Futura mamá esperando la llegada de Ámbar">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Baby Shower de Ámbar">
+<meta name="twitter:description" content="Acompáñanos a celebrar la llegada de nuestra hermosa bebé Ámbar · 22 de agosto de 2026, 5:30 PM.">
+<meta name="twitter:image" content="assets/img/2.jpg">
+
+<!-- Favicon: mariposa (SVG en línea, sin peticiones extra) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 46C42 22 22 10 12 18 2 26 6 44 22 52c10 5 22 3 28-2z' fill='%23EFA7C9'/%3E%3Cpath d='M50 52c-6 8-22 10-30 20-7 9 2 20 14 16 10-4 15-18 16-32z' fill='%23F4B6D2'/%3E%3Cg transform='matrix(-1 0 0 1 100 0)'%3E%3Cpath d='M50 46C42 22 22 10 12 18 2 26 6 44 22 52c10 5 22 3 28-2z' fill='%23CDB8E8'/%3E%3Cpath d='M50 52c-6 8-22 10-30 20-7 9 2 20 14 16 10-4 15-18 16-32z' fill='%23E8DDF3'/%3E%3C/g%3E%3Cpath d='M50 38c2 4 2 26 0 34-2-8-2-30 0-34z' fill='%234B2948'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- ============================================================
+     SPRITE DE MARIPOSAS DE ACUARELA (SVG)
+     Se define una sola vez y se reutiliza con <use>.
+     ============================================================ -->
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <!-- Filtro que rompe el borde limpio del vector y simula acuarela -->
+    <filter id="wc" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="0.6"/>
+    </filter>
+
+    <linearGradient id="gRosa" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#F9DCEB"/>
+      <stop offset="45%"  stop-color="#F4B6D2"/>
+      <stop offset="100%" stop-color="#EFA7C9"/>
+    </linearGradient>
+    <linearGradient id="gLila" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#E8DDF3"/>
+      <stop offset="50%"  stop-color="#CDB8E8"/>
+      <stop offset="100%" stop-color="#B9A0DC"/>
+    </linearGradient>
+    <linearGradient id="gMix" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%"   stop-color="#F9DCEB"/>
+      <stop offset="40%"  stop-color="#EFA7C9"/>
+      <stop offset="100%" stop-color="#CDB8E8"/>
+    </linearGradient>
+
+    <!-- Aguada blanca que aclara el centro, como el agua de la acuarela -->
+    <radialGradient id="gAgua" cx="50%" cy="52%" r="50%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity=".85"/>
+      <stop offset="55%"  stop-color="#FFFFFF" stop-opacity=".28"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Alas: superior/inferior izquierda + espejo -->
+    <g id="bfWings">
+      <path d="M50 44C46 30 36 13 24 8.5 12 4 3 12 4 24c1 14 20 24.5 46 26z"/>
+      <path d="M50 53c-10 3-24 8-30 16-7 10 0 21.5 10 18.5C40 84.5 48 70 50 56z"/>
+      <g transform="matrix(-1 0 0 1 100 0)">
+        <path d="M50 44C46 30 36 13 24 8.5 12 4 3 12 4 24c1 14 20 24.5 46 26z"/>
+        <path d="M50 53c-10 3-24 8-30 16-7 10 0 21.5 10 18.5C40 84.5 48 70 50 56z"/>
+      </g>
+    </g>
+
+    <!-- Cuerpo y antenas -->
+    <g id="bfBody">
+      <path d="M50 35c1.7 5 1.7 30 0 39-1.7-9-1.7-34 0-39z" fill="#4B2948" opacity=".34"/>
+      <path d="M50 38c-2-6-6-10.5-10.5-13M50 38c2-6 6-10.5 10.5-13"
+            fill="none" stroke="#4B2948" stroke-opacity=".26" stroke-width="1.1" stroke-linecap="round"/>
+      <circle cx="39.5" cy="25" r="1.5" fill="#4B2948" opacity=".22"/>
+      <circle cx="60.5" cy="25" r="1.5" fill="#4B2948" opacity=".22"/>
+    </g>
+
+    <symbol id="bf-rosa" viewBox="0 0 100 100">
+      <g filter="url(#wc)">
+        <use href="#bfWings" fill="url(#gRosa)" opacity=".62"/>
+        <use href="#bfWings" fill="url(#gMix)" opacity=".34" transform="translate(50 50) scale(.88) translate(-50 -50)"/>
+        <ellipse cx="50" cy="50" rx="30" ry="26" fill="url(#gAgua)"/>
+      </g>
+      <use href="#bfBody"/>
+    </symbol>
+
+    <symbol id="bf-lila" viewBox="0 0 100 100">
+      <g filter="url(#wc)">
+        <use href="#bfWings" fill="url(#gLila)" opacity=".55"/>
+        <use href="#bfWings" fill="url(#gRosa)" opacity=".3" transform="translate(50 50) scale(.85) translate(-50 -50)"/>
+        <ellipse cx="50" cy="50" rx="30" ry="26" fill="url(#gAgua)"/>
+      </g>
+      <use href="#bfBody"/>
+    </symbol>
+
+    <symbol id="bf-mixto" viewBox="0 0 100 100">
+      <g filter="url(#wc)">
+        <use href="#bfWings" fill="url(#gMix)" opacity=".6"/>
+        <use href="#bfWings" fill="url(#gLila)" opacity=".28" transform="translate(50 50) scale(.9) translate(-50 -50)"/>
+        <ellipse cx="50" cy="50" rx="30" ry="26" fill="url(#gAgua)"/>
+      </g>
+      <use href="#bfBody"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<main class="invitacion">
+
+  <!-- ==========================================================
+       1 · PORTADA
+       ========================================================== -->
+  <section class="hero" aria-labelledby="hero-nombre">
+
+    <!-- Mariposas de la portada -->
+    <svg class="bf fx-intro" style="--t:9%;--l:6%;--s:74px;--dur:15s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-drift" style="--t:5%;--l:auto;--r:8%;--s:58px;--d:1.6s;--dur:19s" aria-hidden="true"><use href="#bf-lila"/></svg>
+    <svg class="bf fx-tilt bf--sm-hide" style="--t:31%;--l:auto;--r:4%;--s:40px;--d:2.4s;--dur:13s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-float" style="--t:66%;--l:5%;--s:46px;--d:2s;--dur:17s" aria-hidden="true"><use href="#bf-lila"/></svg>
+    <svg class="bf fx-breathe bf--sm-hide" style="--t:78%;--l:auto;--r:9%;--s:34px;--d:3s;--dur:21s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+
+    <div class="hero__contenido">
+      <p class="hero__susurro enter" style="--d:.7s">La dulce espera está por terminar…</p>
+      <p class="hero__invita enter" style="--d:.85s">Acompáñanos a celebrar</p>
+      <p class="hero__sub enter" style="--d:1s">la llegada de nuestra hermosa bebé</p>
+
+      <h1 class="nombre nombre--hero" id="hero-nombre">Ámbar</h1>
+
+      <div class="filete enter" style="--d:1.3s" aria-hidden="true">
+        <span class="filete__linea"></span>
+        <svg class="filete__bf" viewBox="0 0 100 100"><use href="#bf-mixto"/></svg>
+        <span class="filete__linea"></span>
+      </div>
+
+      <p class="hero__evento enter" style="--d:1.4s">Baby&nbsp;Shower</p>
+      <p class="hero__fecha enter" style="--d:1.55s">Sábado 22 de agosto de 2026</p>
+    </div>
+
+    <div class="hero__scroll enter" style="--d:1.8s" aria-hidden="true">
+      <span class="hero__scroll-linea"></span>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================
+       2 · FOTOGRAFÍAS
+       ========================================================== -->
+  <section class="seccion galeria" aria-labelledby="galeria-titulo">
+    <svg class="bf fx-float bf--sm-hide" style="--t:2%;--l:auto;--r:3%;--s:44px;--d:.5s;--dur:16s" aria-hidden="true"><use href="#bf-lila"/></svg>
+
+    <header class="seccion__intro reveal">
+      <h2 class="titulo-guion" id="galeria-titulo">Esperando con amor la llegada de nuestra pequeña Ámbar</h2>
+      <p class="parrafo">Cada momento de esta dulce espera se convierte en un recuerdo que guardaremos para siempre.</p>
+    </header>
+
+    <div class="galeria__grid">
+      <figure class="foto foto--principal reveal">
+        <img src="assets/img/2.jpg" width="1122" height="1402" loading="lazy" decoding="async"
+             alt="Retrato de la futura mamá con vestido rosa, esperando a Ámbar">
+      </figure>
+
+      <figure class="foto reveal" style="--rd:.12s">
+        <img src="assets/img/1.jpg" width="1086" height="1448" loading="lazy" decoding="async"
+             alt="La futura mamá de perfil acariciando su vientre">
+      </figure>
+
+      <figure class="foto reveal" style="--rd:.24s">
+        <img src="assets/img/3.jpg" width="1122" height="1402" loading="lazy" decoding="async"
+             alt="La futura mamá mirando con ternura su vientre">
+      </figure>
+    </div>
+
+    <svg class="bf fx-tilt" style="--t:auto;--b:6%;--l:2%;--s:38px;--d:1s;--dur:14s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+  </section>
+
+
+  <!-- ==========================================================
+       3 · MENSAJE
+       ========================================================== -->
+  <section class="seccion mensaje" aria-labelledby="mensaje-titulo">
+    <svg class="bf fx-drift" style="--t:24%;--l:auto;--r:4%;--s:42px;--d:.3s;--dur:20s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+    <svg class="bf fx-breathe bf--sm-hide" style="--t:auto;--b:14%;--l:auto;--r:5%;--s:36px;--d:1.4s;--dur:23s" aria-hidden="true"><use href="#bf-lila"/></svg>
+
+    <h2 class="sr-only" id="mensaje-titulo">Mensaje</h2>
+    <blockquote class="mensaje__texto reveal">
+      Una nueva vida está por llegar y queremos compartir contigo la alegría de celebrar este momento tan especial.
+    </blockquote>
+  </section>
+
+
+  <!-- ==========================================================
+       4 · INFORMACIÓN DEL EVENTO
+       ========================================================== -->
+  <section class="seccion" aria-labelledby="evento-titulo">
+    <h2 class="titulo-seccion reveal" id="evento-titulo">Los detalles</h2>
+
+    <div class="tarjeta reveal">
+      <svg class="tarjeta__bf" viewBox="0 0 100 100" aria-hidden="true"><use href="#bf-rosa"/></svg>
+
+      <p class="tarjeta__dia">Sábado</p>
+      <div class="fecha">
+        <span class="fecha__num">22</span>
+        <span class="fecha__mes">Agosto</span>
+        <span class="fecha__anio">2026</span>
+      </div>
+
+      <ul class="datos">
+        <li class="dato">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/>
+          </svg>
+          <span class="dato__label">Fecha</span>
+          <span class="dato__valor">22 de agosto de 2026</span>
+        </li>
+        <li class="dato">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.4 2"/>
+          </svg>
+          <span class="dato__label">Hora</span>
+          <span class="dato__valor">5:30 PM</span>
+        </li>
+        <li class="dato">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+          </svg>
+          <span class="dato__label">Lugar</span>
+          <span class="dato__valor">Calle Mar Caribe #7<br>Col. La Cuesta</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ==========================================================
+       5 · CUENTA REGRESIVA
+       ========================================================== -->
+  <section class="seccion cuenta" aria-labelledby="cuenta-titulo">
+    <h2 class="titulo-seccion reveal" id="cuenta-titulo">Falta muy poco</h2>
+
+    <div class="cuenta__caja reveal" id="cuenta" role="timer" aria-live="polite" aria-atomic="true">
+      <div class="cuenta__unidad"><span class="cuenta__num" id="cd-dias">--</span><span class="cuenta__label">Días</span></div>
+      <span class="cuenta__sep" aria-hidden="true"></span>
+      <div class="cuenta__unidad"><span class="cuenta__num" id="cd-horas">--</span><span class="cuenta__label">Horas</span></div>
+      <span class="cuenta__sep" aria-hidden="true"></span>
+      <div class="cuenta__unidad"><span class="cuenta__num" id="cd-min">--</span><span class="cuenta__label">Minutos</span></div>
+      <span class="cuenta__sep" aria-hidden="true"></span>
+      <div class="cuenta__unidad"><span class="cuenta__num" id="cd-seg">--</span><span class="cuenta__label">Segundos</span></div>
+    </div>
+
+    <p class="cuenta__final" id="cuenta-final" hidden>¡Hoy es el gran día!</p>
+  </section>
+
+
+  <!-- ==========================================================
+       6 · UBICACIÓN
+       ========================================================== -->
+  <section class="seccion ubicacion" aria-labelledby="ubicacion-titulo">
+    <svg class="bf fx-float bf--sm-hide" style="--t:8%;--l:auto;--r:6%;--s:40px;--d:.8s;--dur:18s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+
+    <h2 class="titulo-guion reveal" id="ubicacion-titulo">Te esperamos</h2>
+
+    <address class="direccion reveal">
+      <span class="direccion__calle">Calle Mar Caribe #7</span>
+      <span class="direccion__colonia">Col. La Cuesta</span>
+    </address>
+
+    <!-- Abre Google Maps con la búsqueda exacta de la dirección -->
+    <a class="boton reveal"
+       href="https://www.google.com/maps/search/?api=1&amp;query=Calle%20Mar%20Caribe%20%237%2C%20Col.%20La%20Cuesta"
+       target="_blank" rel="noopener"
+       aria-label="Ver ubicación en Google Maps: Calle Mar Caribe número 7, Colonia La Cuesta">
+      <svg class="boton__ico" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+      </svg>
+      Ver ubicación
+    </a>
+  </section>
+
+
+  <!-- ==========================================================
+       7 · DESPEDIDA
+       ========================================================== -->
+  <section class="seccion despedida" aria-labelledby="despedida-titulo">
+    <svg class="bf fx-tilt" style="--t:6%;--l:5%;--s:38px;--d:.6s;--dur:15s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+
+    <h2 class="titulo-guion reveal" id="despedida-titulo">Nos encantará compartir este momento contigo</h2>
+  </section>
+
+
+  <!-- ==========================================================
+       8 · CIERRE
+       ========================================================== -->
+  <footer class="cierre" aria-labelledby="cierre-nombre">
+    <svg class="bf fx-float" style="--t:14%;--l:8%;--s:48px;--dur:16s" aria-hidden="true"><use href="#bf-lila"/></svg>
+    <svg class="bf fx-drift bf--sm-hide" style="--t:20%;--l:auto;--r:7%;--s:40px;--d:2s;--dur:22s" aria-hidden="true"><use href="#bf-rosa"/></svg>
+    <svg class="bf fx-breathe" style="--t:auto;--b:9%;--l:auto;--r:12%;--s:32px;--d:1.1s;--dur:24s" aria-hidden="true"><use href="#bf-mixto"/></svg>
+
+    <p class="cierre__texto reveal">Con mucho amor, esperamos verte.</p>
+    <p class="nombre nombre--cierre reveal" id="cierre-nombre">Ámbar</p>
+    <p class="cierre__pie reveal">22 · 08 · 2026</p>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
